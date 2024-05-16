@@ -8,7 +8,7 @@ ap.add_argument("-i", "--image", required=True, help="Path to the image")
 args = vars(ap.parse_args())
 
 # Carregando imagem
-image = cv2.imread(args["image"])
+image = cv2.imread("image-test.jpg") 
 (B, G, R)= cv2.split(image) # Dividindo imagem em canais
 # Imagem Splitada
 cv2.imshow("Red", R)
