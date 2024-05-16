@@ -1,6 +1,7 @@
 # Importação de bibliotecas
 import argparse
 import cv2
+import numpy as np
 # Argumentos
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="Path to the image")
@@ -19,3 +20,13 @@ cv2.imshow("Mask", mask)
 masked = cv2.bitwise_and(image, image, mask=mask)
 cv2.imshow("Masked applied to image", masked)
 cv2.waitKey(0)
+
+# Máscara circular
+mask = np.zeros(image.shape[:2], dtype = "uint8")
+cv2.circle(mask, (cX, cY), 100, 255, -1) # criando um circulo com raio 100 e concreto
+masked = cv2.bitwise_and(image, image, mask=mask)
+cv2.imshow("Mask", mask)
+cv2.imshow("Mask Applied to image", masked)
+cv2.waitKey(0)
+
+
